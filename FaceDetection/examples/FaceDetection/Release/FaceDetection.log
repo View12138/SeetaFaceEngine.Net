@@ -1,0 +1,37 @@
+﻿  lab_boosted_classifier.cpp
+  mlp.cpp
+  surf_mlp.cpp
+  face_detection.cpp
+..\..\src\face_detection.cpp(73): warning C4273: “seeta::FaceDetection::FaceDetection”: dll 链接不一致
+  G:\workSpace\2017-10-09\SeetaFaceEngine\FaceDetection\include\face_detection.h(44): note: 参见“{ctor}”的前一个定义
+..\..\src\face_detection.cpp(79): warning C4273: “seeta::FaceDetection::initWithModel”: dll 链接不一致
+  G:\workSpace\2017-10-09\SeetaFaceEngine\FaceDetection\include\face_detection.h(46): note: 参见“initWithModel”的前一个定义
+..\..\src\face_detection.cpp(83): warning C4273: “seeta::FaceDetection::~FaceDetection”: dll 链接不一致
+  G:\workSpace\2017-10-09\SeetaFaceEngine\FaceDetection\include\face_detection.h(45): note: 参见“{dtor}”的前一个定义
+..\..\src\face_detection.cpp(89): warning C4273: “seeta::FaceDetection::Detect”: dll 链接不一致
+  G:\workSpace\2017-10-09\SeetaFaceEngine\FaceDetection\include\face_detection.h(54): note: 参见“Detect”的前一个定义
+..\..\src\face_detection.cpp(107): warning C4018: “<”: 有符号/无符号不匹配
+..\..\src\face_detection.cpp(117): warning C4273: “seeta::FaceDetection::SetMinFaceSize”: dll 链接不一致
+  G:\workSpace\2017-10-09\SeetaFaceEngine\FaceDetection\include\face_detection.h(62): note: 参见“SetMinFaceSize”的前一个定义
+..\..\src\face_detection.cpp(124): warning C4273: “seeta::FaceDetection::SetMaxFaceSize”: dll 链接不一致
+  G:\workSpace\2017-10-09\SeetaFaceEngine\FaceDetection\include\face_detection.h(70): note: 参见“SetMaxFaceSize”的前一个定义
+..\..\src\face_detection.cpp(129): warning C4273: “seeta::FaceDetection::SetImagePyramidScaleFactor”: dll 链接不一致
+  G:\workSpace\2017-10-09\SeetaFaceEngine\FaceDetection\include\face_detection.h(79): note: 参见“SetImagePyramidScaleFactor”的前一个定义
+..\..\src\face_detection.cpp(134): warning C4273: “seeta::FaceDetection::SetWindowStep”: dll 链接不一致
+  G:\workSpace\2017-10-09\SeetaFaceEngine\FaceDetection\include\face_detection.h(87): note: 参见“SetWindowStep”的前一个定义
+..\..\src\face_detection.cpp(141): warning C4273: “seeta::FaceDetection::SetScoreThresh”: dll 链接不一致
+  G:\workSpace\2017-10-09\SeetaFaceEngine\FaceDetection\include\face_detection.h(96): note: 参见“SetScoreThresh”的前一个定义
+  lab_feature_map.cpp
+  surf_feature_map.cpp
+..\..\src\feat\surf_feature_map.cpp(143): warning C4018: “<”: 有符号/无符号不匹配
+  fust.cpp
+  lab_boost_model_reader.cpp
+  surf_mlp_model_reader.cpp
+  image_pyramid.cpp
+  nms.cpp
+    正在创建库 G:\workSpace\2017-10-09\SeetaFaceEngine\NSeetaface\Release\FaceDetection.lib 和对象 G:\workSpace\2017-10-09\SeetaFaceEngine\NSeetaface\Release\FaceDetection.exp
+  正在生成代码
+  All 1588 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  FaceDetection.vcxproj -> G:\workSpace\2017-10-09\SeetaFaceEngine\NSeetaface\Release\FaceDetection.dll
+  FaceDetection.vcxproj -> G:\workSpace\2017-10-09\SeetaFaceEngine\NSeetaface\Release\FaceDetection.pdb (Full PDB)

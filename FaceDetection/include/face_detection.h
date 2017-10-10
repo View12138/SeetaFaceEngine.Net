@@ -43,7 +43,7 @@ class FaceDetection {
  public:
   SEETA_API explicit FaceDetection(const char* model_path);
   SEETA_API ~FaceDetection();
-
+  SEETA_API void initWithModel(const char * model_path);
   /**
    * @brief Detect faces on input image.
    *

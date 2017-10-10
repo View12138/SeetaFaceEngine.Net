@@ -41,7 +41,18 @@
 
 namespace seeta {
 FaceIdentification::FaceIdentification(const char* model_path) {
-  recognizer = new Recognizer(model_path);
+	if (model_path && !strcmp(model_path, "")) {
+		recognizer = new Recognizer(model_path);
+	}
+}
+
+void FaceIdentification::initWithModel(const char* model_path) {
+	if (recognizer == NULL) {
+		recognizer = new Recognizer(model_path);
+	}
+	else {
+		recognizer->LoadModel(model_path);
+	}
 }
 
 FaceIdentification::~FaceIdentification() {

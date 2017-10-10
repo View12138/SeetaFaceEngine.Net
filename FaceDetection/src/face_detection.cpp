@@ -71,7 +71,13 @@ class FaceDetection::Impl {
 
 FaceDetection::FaceDetection(const char* model_path)
     : impl_(new seeta::FaceDetection::Impl()) {
-  impl_->detector_->LoadModel(model_path);
+	if (model_path && !strcmp(model_path, "")) {
+		impl_->detector_->LoadModel(model_path);
+	}
+}
+
+void FaceDetection::initWithModel(const char* model_path) {
+	impl_->detector_->LoadModel(model_path);
 }
 
 FaceDetection::~FaceDetection() {

@@ -49,6 +49,7 @@ public:
 
   SEETA_API ~FaceIdentification();
 
+  SEETA_API void initWithModel(const char * model_path);
   // If you create an 'FaceIdentification' object without identification model \
   , you need to call LoadModel for recognition use.
   SEETA_API uint32_t LoadModel(const char* model_path);

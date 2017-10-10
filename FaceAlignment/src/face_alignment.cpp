@@ -45,10 +45,16 @@ namespace seeta {
    */
   FaceAlignment::FaceAlignment(const char * model_path){
     facial_detector = new CCFAN();
-    if (model_path == NULL)
-      model_path = "seeta_fa_v1.1.bin";
-    facial_detector->InitModel(model_path);
+	if (model_path != NULL) {
+		//model_path = "seeta_fa_v1.1.bin";
+		facial_detector->InitModel(model_path);
+	}
   }
+
+  void FaceAlignment::initWithModel(const char * model_path) {
+	  facial_detector->InitModel(model_path);
+  }
+
 
   /** Detect five facial landmarks, i.e., two eye centers, nose tip and two mouth corners.
    *  @param gray_im A grayscale image

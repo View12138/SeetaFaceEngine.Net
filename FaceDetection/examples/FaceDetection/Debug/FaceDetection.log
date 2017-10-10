@@ -1,0 +1,15 @@
+﻿  lab_boosted_classifier.cpp
+  正在生成代码...
+  正在跳过...(未检测到相关更改)
+  nms.cpp
+  image_pyramid.cpp
+  surf_mlp_model_reader.cpp
+  lab_boost_model_reader.cpp
+  fust.cpp
+  surf_feature_map.cpp
+  lab_feature_map.cpp
+  face_detection.cpp
+  surf_mlp.cpp
+  mlp.cpp
+  FaceDetection.vcxproj -> G:\workSpace\2017-10-09\SeetaFaceEngine\NSeetaface\Debug\FaceDetection.dll
+  FaceDetection.vcxproj -> G:\workSpace\2017-10-09\SeetaFaceEngine\NSeetaface\Debug\FaceDetection.pdb (Partial PDB)
