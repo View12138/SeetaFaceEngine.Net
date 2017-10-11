@@ -1,0 +1,6 @@
+*.c linguist-language=c#
+*.h linguist-language=c#
+*.cpp linguist-language=c#
+*.cs linguist-language=c#
+*.xaml linguist-language=c#
+*.obj linguist-language=c#
