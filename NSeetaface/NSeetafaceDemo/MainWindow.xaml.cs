@@ -282,8 +282,10 @@ namespace NSeetafaceDemo
                         //float[] feat = SeetafaceHelper.ExtractFeature(ofd.FileName, ref faces[0].face, ref faces[0].landmark);
                         SeetafaceHelper.ExtractFeature(ofd.FileName, ref faces[0], feat);
 
-                        //MessageBox.Show(string.Join(",", feat.Select(f=>f.ToString()).ToArray() ));
+                        
 
+                        PrintLog(string.Join(",", feat.Select(f=>f.ToString()).ToArray() ));
+                        
                     }
                     else
                         MessageBox.Show("检测失败");

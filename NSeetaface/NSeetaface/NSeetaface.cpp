@@ -61,13 +61,13 @@ char * Str_Char(std::string &str)
 	return data;
 }
 
-// æ³¨å†Œæ—¥å¿—å›è°ƒå‡½æ•°
+// ×¢²áÈÕÖ¾»Øµ÷º¯Êı
 extern "C" __declspec(dllexport) void SetDisplayLog(LogCallBack DisplayLog)
 {
 	logger = DisplayLog;
 }
 
-// è®¾ç½®äººè„¸æ¨¡å‹ç›®å½•
+// ÉèÖÃÈËÁ³Ä£ĞÍÄ¿Â¼
 extern "C" __declspec(dllexport) void SetModelDirectory(const char* path)
 {
 	/*
@@ -84,8 +84,8 @@ extern "C" __declspec(dllexport) void SetModelDirectory(const char* path)
 }
 
 /*
- *	åˆå§‹åŒ–äººè„¸æ£€æµ‹, äººè„¸å¯¹é½, äººè„¸è¯†åˆ«
- *  åˆå§‹åŒ–æˆåŠŸè¿”å›1
+ *	³õÊ¼»¯ÈËÁ³¼ì²â, ÈËÁ³¶ÔÆë, ÈËÁ³Ê¶±ğ
+ *  ³õÊ¼»¯³É¹¦·µ»Ø1
  */
 extern "C" __declspec(dllexport) int Init()
 {
@@ -104,16 +104,16 @@ extern "C" __declspec(dllexport) int Init()
 
 	FILE* fp = fopen(tDetectModelPath.c_str(), "r");
 	if (!fp) {
-		//äººè„¸æ£€æµ‹æ¨¡å‹ä¸å­˜åœ¨
-		log("äººè„¸æ£€æµ‹æ¨¡å‹ä¸å­˜åœ¨");
+		//ÈËÁ³¼ì²âÄ£ĞÍ²»´æÔÚ
+		log("ÈËÁ³¼ì²âÄ£ĞÍ²»´æÔÚ");
 		return -1;
 	}
 	fclose(fp);
 
 	fp = fopen(tAlignModelPath.c_str(), "r");
 	if (!fp) {
-		//äººè„¸å¯¹é½æ¨¡å‹ä¸å­˜åœ¨
-		log("äººè„¸å¯¹é½æ¨¡å‹ä¸å­˜åœ¨");
+		//ÈËÁ³¶ÔÆëÄ£ĞÍ²»´æÔÚ
+		log("ÈËÁ³¶ÔÆëÄ£ĞÍ²»´æÔÚ");
 		return -2;
 	}
 	fclose(fp);
@@ -121,8 +121,8 @@ extern "C" __declspec(dllexport) int Init()
 
 	fp = fopen(tIdentificationModelPath.c_str(), "r");
 	if (!fp) {
-		//äººè„¸è¯†åˆ«æ¨¡å‹ä¸å­˜åœ¨
-		log("äººè„¸è¯†åˆ«æ¨¡å‹ä¸å­˜åœ¨");
+		//ÈËÁ³Ê¶±ğÄ£ĞÍ²»´æÔÚ
+		log("ÈËÁ³Ê¶±ğÄ£ĞÍ²»´æÔÚ");
 		return -3;
 	}
 	fclose(fp);
@@ -135,18 +135,18 @@ extern "C" __declspec(dllexport) int Init()
 }
 
 /*
- *	äººè„¸æ£€æµ‹
+ *	ÈËÁ³¼ì²â
  */
 extern "C" __declspec(dllexport) int DetectFace(const char* picPath, seeta::FaceInfo* face)
 {
-	//ç°åº¦å›¾
+	//»Ò¶ÈÍ¼
 	IplImage *img_grayscale = NULL;
 	img_grayscale = cvLoadImage(picPath, 0);
 	if (img_grayscale == NULL)
 	{
 		return 0;
 	}
-	//å½©è‰²å›¾
+	//²ÊÉ«Í¼
 	IplImage *img_color = cvLoadImage(picPath, 1);
 
 	int im_width = img_grayscale->width;
@@ -199,18 +199,18 @@ extern "C" __declspec(dllexport) int DetectFace(const char* picPath, seeta::Face
 
 
 /*
- *	äººè„¸æ£€æµ‹
+ *	ÈËÁ³¼ì²â
  */
 extern "C" __declspec(dllexport) int DetectFaces(const char* picPath, char* json)
 {
-	//ç°åº¦å›¾
+	//»Ò¶ÈÍ¼
 	IplImage *img_grayscale = NULL;
 	img_grayscale = cvLoadImage(picPath, 0);
 	if (img_grayscale == NULL)
 	{
 		return 0;
 	}
-	//å½©è‰²å›¾
+	//²ÊÉ«Í¼
 	IplImage *img_color = cvLoadImage(picPath, 1);
 
 	int im_width = img_grayscale->width;
@@ -277,20 +277,20 @@ extern "C" __declspec(dllexport) int DetectFaces(const char* picPath, char* json
 
 
 /*
- *	äººè„¸å¯¹é½
+ *	ÈËÁ³¶ÔÆë
  */
 extern "C" __declspec(dllexport) int Alignment(const char* picPath, char* json)
 {
 	clock_t start, end = 0;
 
-	//ç°åº¦å›¾
+	//»Ò¶ÈÍ¼
 	IplImage *img_grayscale = NULL;
 	img_grayscale = cvLoadImage(picPath, 0);
 	if (img_grayscale == NULL)
 	{
 		return 0;
 	}
-	//å½©è‰²å›¾
+	//²ÊÉ«Í¼
 	IplImage *img_color = cvLoadImage(picPath, 1);
 
 	int im_width = img_grayscale->width;
@@ -316,7 +316,7 @@ extern "C" __declspec(dllexport) int Alignment(const char* picPath, char* json)
 	std::vector<seeta::FaceInfo> faces = detector.Detect(image_data);
 	end = clock() - start;
 	int haoshi = end;
-	log(("æ£€æµ‹äººè„¸è€—æ—¶:" + int2string(haoshi)).c_str());
+	log(("¼ì²âÈËÁ³ºÄÊ±:" + int2string(haoshi)).c_str());
 	
 	size_t faceCount = faces.size();
 
@@ -336,7 +336,7 @@ extern "C" __declspec(dllexport) int Alignment(const char* picPath, char* json)
 		start = clock();
 		for (auto iter = faces.begin(); iter != faces.end(); iter++, count++)
 		{
-			// æ£€æµ‹äº”å®˜åæ ‡
+			// ¼ì²âÎå¹Ù×ø±ê
 			seeta::FacialLandmark points[5];
 			alignment.PointDetectLandmarks(image_data, (*iter), points);
 
@@ -367,7 +367,7 @@ extern "C" __declspec(dllexport) int Alignment(const char* picPath, char* json)
 		}
 		end = clock() - start;
 		haoshi = end;
-		log(("æ£€æµ‹äº”å®˜+åºåˆ—åŒ–JSON è€—æ—¶:" + int2string(haoshi)).c_str());
+		log(("¼ì²âÎå¹Ù+ĞòÁĞ»¯JSON ºÄÊ±:" + int2string(haoshi)).c_str());
 	}
 	result += "]";
 	log(result.c_str());
@@ -378,7 +378,7 @@ extern "C" __declspec(dllexport) int Alignment(const char* picPath, char* json)
 }
 
 /*
- *	æå–äººè„¸ç‰¹å¾
+ *	ÌáÈ¡ÈËÁ³ÌØÕ÷
  */
 extern "C" __declspec(dllexport) int ExtractFeature(
 	const char* picPath,
@@ -405,7 +405,7 @@ extern "C" __declspec(dllexport) int ExtractFeature(
 	//seeta::ImageData src_img_data_color(src_img_color.cols, src_img_color.rows, src_img_color.channels());
 	//src_img_data_color.data = src_img_color.data;
 
-	//è£å‰ªå‡ºäººè„¸
+	//²Ã¼ô³öÈËÁ³
 	/*cv::Mat dst_img(face_recognizer.crop_height(),
 		face_recognizer.crop_width(),
 		CV_8UC(face_recognizer.crop_channels()));
@@ -416,26 +416,26 @@ extern "C" __declspec(dllexport) int ExtractFeature(
 
 	log((int2string(alignResult->landmark[0].x) + "," + int2string(alignResult->landmark[0].y)).c_str());
 	//float feat1[SEETAFACE_FEATURE_NUM];
-	//æå–ç‰¹å¾
+	//ÌáÈ¡ÌØÕ÷
 	start = clock();
 	face_recognizer.ExtractFeatureWithCrop(src_img_data_color, alignResult->landmark, feat);
 	//memcpy(feat, feat1, SEETAFACE_FEATURE_NUM);
 	count += clock() - start;
 	int haoshi = count;
-	log(("æå–ç‰¹å¾è€—æ—¶:" + int2string(haoshi)).c_str());
+	log(("ÌáÈ¡ÌØÕ÷ºÄÊ±:" + int2string(haoshi)).c_str());
 	return 1;
 }
 
 
 /*
-*	è®¡ç®—äººè„¸ç›¸ä¼¼åº¦(äººè„¸ç‰¹å¾1, äººè„¸ç‰¹å¾2)
+*	¼ÆËãÈËÁ³ÏàËÆ¶È(ÈËÁ³ÌØÕ÷1, ÈËÁ³ÌØÕ÷2)
 */
 extern "C" __declspec(dllexport) double CalcSimilarity(
 	float* feat1, float* feta2
 )
 {
 	double tSim = identification.CalcSimilarity(feat1, feta2);
-	//ä¿ç•™ä¸¤ä½å°æ•°
+	//±£ÁôÁ½Î»Ğ¡Êı
 	tSim = int(100 * tSim) / 100.0;
 	return tSim;
 }

@@ -125,5 +125,8 @@ namespace Seetaface
         /// <returns></returns>
         [DllImport("NSeetaface.dll", EntryPoint = "CalcSimilarity", CallingConvention = CallingConvention.Cdecl)]
         public extern static double CalcSimilarity(float[] feat1, float[] feat2);
+
+
+      
     }
 }
