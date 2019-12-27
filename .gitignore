@@ -17,3 +17,5 @@
 model/
 /FaceDetection/examples/FaceDetection/Debug/FaceDetection.tlog
 /FaceDetection/examples/FaceDetection/Debug
+Release/
+*.zip
