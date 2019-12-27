@@ -28,7 +28,7 @@
     - 输出目录 `SeetaFaceEngine.Net\NSeetaface\Release\netstandard2.0`
 
 ## 使用
-> 自行编译 或 [下载 Release.zip](https://github.com/View12138/SeetaFaceEngine.Net/releases) 或 [百度网盘](https://pan.baidu.com/s/1pVpuMQP7tIrAKlML3jQyEg)
+> 自行编译 或 [下载 Release.zip](https://github.com/View12138/SeetaFaceEngine.Net/releases) 或 [百度网盘](https://pan.baidu.com/s/13-v1MkEOw3kUH9B8OFzbiQ)
 
 - ### 直接下载发布版
     - 解压 `Release.zip` ，将 `所有文件` 拷贝至项目 `Libraries\NSeetaface` 目录下。
