@@ -19,6 +19,27 @@ namespace ViewFace
     {
         // 私有方法
         /// <summary>
+        /// 将 <see cref="Bitmap"/> 格式转为 24位 ,RGB 各占8位
+        /// </summary>
+        /// <param name="bitmap"></param>
+        /// <returns></returns>
+        private static Bitmap BitmapTo24Rgb(Bitmap bitmap)
+        {
+            if (bitmap.PixelFormat != System.Drawing.Imaging.PixelFormat.Format24bppRgb)
+            {
+                Bitmap bmp = new Bitmap(bitmap.Width, bitmap.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+                using (Graphics g = Graphics.FromImage(bmp))
+                {
+                    g.DrawImage(bitmap, new Rectangle(0, 0, bitmap.Width, bitmap.Height));
+                }
+                return bmp;
+            }
+            else
+            {
+                return bitmap;
+            }
+        }
+        /// <summary>
         /// <see cref="Bitmap"/> 转 byte[]
         /// <para>释放此 bitmap 使用的所有资源</para>
         /// </summary>
@@ -78,7 +99,9 @@ namespace ViewFace
         /// <returns></returns>
         public static int DetectFace(Bitmap bitmap, ref FaceInfo faceInfo)
         {
-            byte[] imageByte = BitmapToByteBuffer(bitmap, out int width, out int height, out int stride);
+            Bitmap bmp = BitmapTo24Rgb(bitmap); //将图像转换为24位rgb图像
+            bmp.SetResolution(96, 96); //设置dpi=96
+            byte[] imageByte = BitmapToByteBuffer(bmp, out int width, out int height, out int stride);
             return SDK.DetectFaceByte(imageByte, width, height, stride, ref faceInfo);
         }
         /// <summary>
@@ -111,7 +134,9 @@ namespace ViewFace
         /// <returns></returns>
         public static int DetectFaces(Bitmap bitmap, ref FaceInfo[] faceInfos)
         {
-            byte[] imageByte = BitmapToByteBuffer(bitmap, out int width, out int height, out int stride);
+            Bitmap bmp = BitmapTo24Rgb(bitmap); //将图像转换为24位rgb图像
+            bmp.SetResolution(96, 96); //设置dpi=96
+            byte[] imageByte = BitmapToByteBuffer(bmp, out int width, out int height, out int stride);
             StringBuilder json = new StringBuilder(500);
             int faceCount = SDK.DetectFacesByte(imageByte, width, height, stride, json);
             JsonSerializer serializer = new JsonSerializer();
@@ -156,7 +181,9 @@ namespace ViewFace
         /// <returns></returns>
         public static int Alignment(Bitmap bitmap, ref AlignmentResult[] faces)
         {
-            byte[] imageByte = BitmapToByteBuffer(bitmap, out int width, out int height, out int stride);
+            Bitmap bmp = BitmapTo24Rgb(bitmap); //将图像转换为24位rgb图像
+            bmp.SetResolution(96, 96); //设置dpi=96
+            byte[] imageByte = BitmapToByteBuffer(bmp, out int width, out int height, out int stride);
             StringBuilder json = new StringBuilder(1500);
             int faceCount = SDK.AlignmentByte(imageByte, width, height, stride, json);
             if (faceCount > 0)
@@ -191,7 +218,9 @@ namespace ViewFace
         /// <returns></returns>
         public static bool ExtractFeature(Bitmap bitmap, ref AlignmentResult alignmentResult, float[] feat)
         {
-            byte[] imageByte = BitmapToByteBuffer(bitmap, out int width, out int height, out int stride);
+            Bitmap bmp = BitmapTo24Rgb(bitmap); //将图像转换为24位rgb图像
+            bmp.SetResolution(96, 96); //设置dpi=96
+            byte[] imageByte = BitmapToByteBuffer(bmp, out int width, out int height, out int stride);
             return SDK.ExtracFeatureByte(imageByte, width, height, stride, ref alignmentResult, feat);
         }
         /// <summary>
