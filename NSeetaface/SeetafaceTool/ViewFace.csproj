@@ -6,12 +6,12 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>D:\Projects\SeetaFaceEngine.Net\NSeetaface\SeetafaceTool\ViewFace.xml</DocumentationFile>
-    <OutputPath>D:\Projects\SeetaFaceEngine.Net\NSeetaface\Release\</OutputPath>
+    <OutputPath>..\Release\</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>D:\Projects\SeetaFaceEngine.Net\NSeetaface\SeetafaceTool\ViewFace.xml</DocumentationFile>
-    <OutputPath>D:\Projects\SeetaFaceEngine.Net\NSeetaface\Release\</OutputPath>
+    <OutputPath>..\Debug\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
