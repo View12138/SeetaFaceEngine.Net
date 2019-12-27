@@ -28,7 +28,38 @@
     - 输出目录 `SeetaFaceEngine.Net\NSeetaface\Release\netstandard2.0`
 
 ## 使用
-> 自行编译 或 [下载 Release.zip](https://github.com/View12138/SeetaFaceEngine.Net/releases) 或 [百度网盘](https://pan.baidu.com/s/1FTn3ptVimCuy9JHrlFl5fQ)
+> 自行编译 或 [下载 Release.zip](https://github.com/View12138/SeetaFaceEngine.Net/releases) 或 [百度网盘](https://pan.baidu.com/s/1pVpuMQP7tIrAKlML3jQyEg)
 
-- 解压 `Release.zip` ，将 `model/` 、`FaceAlignment.dll`、`FaceDetection.dll`、`Identification.dll`、`NSeetaface.dll` 拷贝至项目的生成的目录。
-- 在项目中引用 `ViewFace.dll` 
+- ### 直接下载发布版
+    - 解压 `Release.zip` ，将 `所有文件` 拷贝至项目 `Libraries\NSeetaface` 目录下。
+    - 在项目中引用 `ViewFace.dll` 
+    - 项目 > 属性 > 生成事件 > 生成后事件命令行 `xcopy $(ProjectDir)Libraries\NSeetaface $(ProjectDir)bin\$(ConfigurationName) /y /s /e`
+- ### 自行编译 [ 保持以下目录结构不变 ]
+    - 下载 `Release.zip` ，获取以下文件：
+        - `model\seeta_fa_v1.1.bin`
+        - `model\seeta_fd_frontal_v1.0.bin`
+        - `model\seeta_fr_v1.0.bin`
+        - `DirectShowLib-2005.dll`
+        - `opencv_core2412.dll`
+        - `opencv_core2412d.dll`
+        - `opencv_highgui2412.dll`
+        - `opencv_highgui2412d.dll`
+        - `opencv_imgproc2412.dll`
+        - `opencv_imgproc2412d.dll`
+    - 编译，并在输出目录下获取以下文件：
+        - `FaceAlignment.dll`
+        - `FaceDetection.dll`
+        - `Identification.dll`
+        - `NSeetaface.dll`
+        - `ViewFace.dll`
+        - `ViewFace.xml` 
+    - 将 `以上所有文件` 拷贝至项目 `Libraries\NSeetaface` 目录下。
+    - 在项目中引用 `ViewFace.dll` 
+    - 项目 > 属性 > 生成事件 > 生成后事件命令行 `xcopy $(ProjectDir)Libraries\NSeetaface $(ProjectDir)bin\$(ConfigurationName) /y /s /e`
+
+- ### 代码
+    ```
+    string path = @"model\"; // Seetaface model [seeta_f*_v1.?.bin] 的目录
+    SeetafaceTool.SetModelDirectory(path); // 设置 model 目录
+    bool canFace = SeetafaceTool.Init(); // 初始化人脸识别库
+    ```
