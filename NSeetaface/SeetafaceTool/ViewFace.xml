@@ -1,0 +1,276 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ViewFace</name>
+    </assembly>
+    <members>
+        <member name="T:ViewFace.LogCallBack">
+            <summary>
+            日志回调函数
+            </summary>
+            <param name="logInfo"></param>
+        </member>
+        <member name="T:ViewFace.SDK">
+            <summary>
+            人脸识别SDK
+            <para>[包装C++库] 请调用 <see cref="T:ViewFace.Tool"/> 中的类</para>
+            </summary>
+        </member>
+        <member name="M:ViewFace.SDK.SetDisplayLog(ViewFace.LogCallBack)">
+            <summary>
+            设置日志回调函数(用于日志打印)
+            </summary>
+            <param name="logCallBack"></param>
+        </member>
+        <member name="M:ViewFace.SDK.SetModelDirectory(System.Byte[])">
+            <summary>
+            设置人脸模型的目录
+            </summary>
+            <param name="dirPath"></param>
+        </member>
+        <member name="M:ViewFace.SDK.Init">
+            <summary>
+            初始化人脸识别
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ViewFace.SDK.DetectFace(System.String,ViewFace.FaceInfo@)">
+            <summary>
+            检测图片中的人脸.获取第一张人脸
+            </summary>
+            <param name="path"></param>
+            <param name="faceInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViewFace.SDK.DetectFaceByte(System.Byte[],System.Int32,System.Int32,System.Int32,ViewFace.FaceInfo@)">
+            <summary>
+            检测图片中的人脸.获取第一张人脸,通过内存数据
+            </summary>
+            <param name="path"></param>
+            <param name="faceInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViewFace.SDK.DetectFaces(System.String,System.Text.StringBuilder)">
+            <summary>
+            检测图片中的人脸,返回多张人脸JSON数据
+            </summary>
+            <param name="path"></param>
+            <param name="faceInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViewFace.SDK.DetectFacesByte(System.Byte[],System.Int32,System.Int32,System.Int32,System.Text.StringBuilder)">
+            <summary>
+            检测图片中的人脸,返回多张人脸JSON数据,通过内存数据
+            </summary>
+            <param name="path"></param>
+            <param name="faceInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViewFace.SDK.Alignment(System.String,System.Text.StringBuilder)">
+            <summary>
+            人脸对齐
+            </summary>
+            <param name="path"></param>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViewFace.SDK.AlignmentByte(System.Byte[],System.Int32,System.Int32,System.Int32,System.Text.StringBuilder)">
+            <summary>
+            人脸对齐,通过内存数据
+            </summary>
+            <param name="path"></param>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViewFace.SDK.ExtractFeature(System.String,ViewFace.AlignmentResult@,System.Single[])">
+            <summary>
+            提取特征
+            </summary>
+            <param name="picPath"></param>
+            <param name="face"></param>
+            <param name="pt5"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViewFace.SDK.ExtracFeatureByte(System.Byte[],System.Int32,System.Int32,System.Int32,ViewFace.AlignmentResult@,System.Single[])">
+            <summary>
+            提取特征,通过内存数据
+            </summary>
+            <param name="width">图像宽度</param>
+            <param name="height">图像高度</param>
+            <param name="data">图像的字节数组</param>
+            <param name="face"></param>
+            <param name="pt5"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ViewFace.SDK.CalcSimilarity(System.Single[],System.Single[])">
+            <summary>
+            计算相似度
+            </summary>
+            <param name="feat1">人脸特征1</param>
+            <param name="feat2">人脸特征2</param>
+            <returns></returns>
+        </member>
+        <member name="T:ViewFace.Rect">
+            <summary>
+            位置矩形
+            </summary>
+        </member>
+        <member name="F:ViewFace.Rect.x">
+            <summary>
+            x坐标
+            </summary>
+        </member>
+        <member name="F:ViewFace.Rect.y">
+            <summary>
+            y坐标
+            </summary>
+        </member>
+        <member name="F:ViewFace.Rect.width">
+            <summary>
+            宽度
+            </summary>
+        </member>
+        <member name="F:ViewFace.Rect.height">
+            <summary>
+            高度
+            </summary>
+        </member>
+        <member name="T:ViewFace.FaceInfo">
+            <summary>
+            人脸信息
+            </summary>
+        </member>
+        <member name="F:ViewFace.FaceInfo.bbox">
+            <summary>
+            人脸所在位置
+            </summary>
+        </member>
+        <member name="T:ViewFace.FacialLandmark">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ViewFace.AlignmentResult">
+            <summary>
+            人脸对齐结果
+            </summary>
+        </member>
+        <member name="F:ViewFace.AlignmentResult.face">
+            <summary>
+            人脸信息
+            </summary>
+        </member>
+        <member name="T:ViewFace.Tool">
+            <summary>
+            <see langword="SeetaFace 1.0"/> 人脸识别库 <see langword=".Net"/> 工具类。
+            <para>使用方法：</para>
+            <para>0. 搭建环境。</para>
+            <para>1. 调用 <see cref="M:ViewFace.Tool.SetModelDirectory(System.String)"/> 设置 <see langword="seeta_*_v1.?.bin"/> 模块路径。</para>
+            <para>2. 调用 <see cref="M:ViewFace.Tool.Init"/> 初始化人脸识别库。</para>
+            </summary>
+        </member>
+        <member name="M:ViewFace.Tool.BitmapToByteBuffer(System.Drawing.Bitmap,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            <see cref="T:System.Drawing.Bitmap"/> 转 byte[]
+            <para>释放此 bitmap 使用的所有资源</para>
+            </summary>
+            <param name="bitmap">待转换图像</param>
+            <param name="width">图像宽度</param>
+            <param name="height">图像高度</param>
+            <param name="stride">图像扫描宽度</param>
+            <returns></returns>
+        </member>
+        <member name="M:ViewFace.Tool.SetModelDirectory(System.String)">
+            <summary>
+            设置人脸模型的目录
+            </summary>
+            <param name="modelPath"></param>
+        </member>
+        <member name="M:ViewFace.Tool.Init">
+            <summary>
+            初始化人脸识别
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ViewFace.Tool.SetDisplayLog(ViewFace.LogCallBack)">
+            <summary>
+            设置日志回调函数
+            </summary>
+            <param name="logCallBack"></param>
+        </member>
+        <member name="M:ViewFace.Tool.DetectFace(System.String,ViewFace.FaceInfo@)">
+            <summary>
+            检测图片中的人脸，返回识别到的人脸的数量。
+            </summary>
+            <param name="path">图片的路径</param>
+            <param name="faceInfo">识别到的第一张人脸</param>
+            <returns></returns>
+        </member>
+        <member name="M:ViewFace.Tool.DetectFace(System.Drawing.Bitmap,ViewFace.FaceInfo@)">
+            <summary>
+            检测图片中的人脸，返回识别到的人脸的数量。
+            </summary>
+            <param name="bitmap">图片</param>
+            <param name="faceInfo">识别到的第一张人脸</param>
+            <returns></returns>
+        </member>
+        <member name="M:ViewFace.Tool.DetectFaces(System.String,ViewFace.FaceInfo[]@)">
+            <summary>
+            检测图片中的人脸，返回识别到的人脸数量。
+            </summary>
+            <param name="path">图片的路径</param>
+            <param name="faceInfos">识别到的所有人脸的信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:ViewFace.Tool.DetectFaces(System.Drawing.Bitmap,ViewFace.FaceInfo[]@)">
+            <summary>
+            检测图片中的人脸，返回识别到的人脸数量。
+            </summary>
+            <param name="bitmap">图片</param>
+            <param name="faceInfos">识别到的所有人脸的信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:ViewFace.Tool.Alignment(System.String,ViewFace.AlignmentResult[]@)">
+            <summary>
+            人脸对齐，返回识别到的人脸数量。
+            </summary>
+            <param name="path">图片的路径</param>
+            <param name="faces">人脸对齐的结果</param>
+            <returns></returns>
+        </member>
+        <member name="M:ViewFace.Tool.Alignment(System.Drawing.Bitmap,ViewFace.AlignmentResult[]@)">
+            <summary>
+            人脸对齐，返回识别到的人脸数量。
+            </summary>
+            <param name="bitmap">图片</param>
+            <param name="faces">人脸对齐的结果</param>
+            <returns></returns>
+        </member>
+        <member name="M:ViewFace.Tool.ExtractFeature(System.String,ViewFace.AlignmentResult@,System.Single[])">
+            <summary>
+            提取人脸特征码。
+            </summary>
+            <param name="path">图片路径</param>
+            <param name="alignmentResult">要提取特征码的人脸的对齐结果</param>
+            <param name="feat">特征码</param>
+            <returns></returns>
+        </member>
+        <member name="M:ViewFace.Tool.ExtractFeature(System.Drawing.Bitmap,ViewFace.AlignmentResult@,System.Single[])">
+            <summary>
+            提取人脸特征码。
+            </summary>
+            <param name="bitmap">图片</param>
+            <param name="alignmentResult">要提取特征码的人脸的对齐结果</param>
+            <param name="feat">特征码</param>
+            <returns></returns>
+        </member>
+        <member name="M:ViewFace.Tool.CalcSimilarity(System.Single[],System.Single[])">
+            <summary>
+            计算人脸特征码相似度。
+            </summary>
+            <param name="feat1">人脸特征码1</param>
+            <param name="feat2">人脸特征码2</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

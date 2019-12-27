@@ -1,0 +1,17 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/FaceAlignment/examples/FaceAlignment/Debug
+/FaceAlignment/examples/FaceAlignment/Release
+/FaceDetection/examples/Identification/Debug
+/FaceDetection/examples/Identification/Release
+/FaceIdentification/examples/Identification/Debug
+/FaceIdentification/examples/Identification/Release
+/NSeetaface/.vs/NSeetaface
+/NSeetaface/Release
+/FaceDetection/examples/FaceDetection/Release/FaceDetection.tlog
+/FaceDetection/examples/FaceDetection/Release
+/NSeetaface/NSeetaface/Release/NSeetaface.tlog
+/NSeetaface/SeetafaceTool/bin/Release/netstandard2.0
+model/

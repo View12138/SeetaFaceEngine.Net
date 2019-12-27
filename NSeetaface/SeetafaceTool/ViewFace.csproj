@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>D:\Projects\SeetaFaceEngine.Net\NSeetaface\SeetafaceTool\ViewFace.xml</DocumentationFile>
+    <OutputPath>D:\Projects\SeetaFaceEngine.Net\NSeetaface\Release\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\Projects\SeetaFaceEngine.Net\NSeetaface\SeetafaceTool\ViewFace.xml</DocumentationFile>
+    <OutputPath>D:\Projects\SeetaFaceEngine.Net\NSeetaface\Release\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+  </ItemGroup>
+
+</Project>

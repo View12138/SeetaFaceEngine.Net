@@ -1,0 +1,12 @@
+Debug/
+Release/
+NSeetaface/Debug
+NSeetaface/Release
+SeetafaceTool/obj
+SeetafaceTool/obj/Debug
+SeetafaceTool/obj/Release
+SeetafaceTool/obj/Debug/netstandard2.0
+SeetafaceTool/obj/Release/netstandard2.0
+SeetafaceTool/bin
+packages/
+*.log
